@@ -20,6 +20,7 @@
 
 # http://docs.readthedocs.io/en/latest/getting_started.html#in-markdown
 from recommonmark.parser import CommonMarkParser
+from recommonmark.transform import AutoStructify
 
 source_parsers = {
     '.md': CommonMarkParser,
@@ -167,3 +168,10 @@ texinfo_documents = [
 
 
 # -- Extension configuration -------------------------------------------------
+
+def setup(app):
+    app.add_config_value('recommonmark_config', {
+            'url_resolver': lambda url: github_doc_root + url,
+            'auto_toc_tree_section': 'Contents',
+            }, True)
+    app.add_transform(AutoStructify)

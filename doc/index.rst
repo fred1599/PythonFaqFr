@@ -3,18 +3,29 @@
    You can adapt this file completely to your liking, but it should at least
    contain the root `toctree` directive.
 
-Welcome to Python FAQ FR's documentation!
-=========================================
+Bienvenue sur Python FAQ FR !
+=============================
+
+Cette documentation regroupe les questions les plus fréquement posées (FAQ)
+par les débutants en Python.
+
+Cette documentation est un effort collectif. Tout 
+`pull request <https://help.github.com/articles/about-pull-requests/>`_ est le 
+bienvenue afin d'ajouter un nouveau sujet ou pour proposer une modification.
+
 
 .. toctree::
-   :maxdepth: 2
-   :caption: Contents:
+   :maxdepth: 1
+   :caption: Python en général
+
+.. toctree::
+   :maxdepth: 1
+   :caption: Pygame
+
+   pygame_collisions
 
 
+Outils de navigation
+********************
 
-Indices and tables
-==================
-
-* :ref:`genindex`
-* :ref:`modindex`
 * :ref:`search`

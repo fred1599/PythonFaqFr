@@ -15,13 +15,17 @@ bienvenue afin d'ajouter un nouveau sujet ou pour proposer une modification.
 
 
 .. toctree::
-   :maxdepth: 1
-   :caption: Python en général
+    :maxdepth: 1
+    :caption: Python en général
 
 .. toctree::
-   :maxdepth: 1
-   :caption: Pygame
+    :maxdepth: 1
+    :caption: Pygame
 
-   pygame_collisions
+    pygame_collisions
 
+.. toctree::
+    :maxdepth: 1
+    :caption: Contribution
 
+    contribute

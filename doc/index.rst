@@ -25,7 +25,3 @@ bienvenue afin d'ajouter un nouveau sujet ou pour proposer une modification.
    pygame_collisions
 
 
-Outils de navigation
-********************
-
-* :ref:`search`

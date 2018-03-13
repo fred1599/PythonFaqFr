@@ -6,7 +6,7 @@
 Bienvenue sur Python FAQ FR !
 =============================
 
-Cette documentation regroupe les questions les plus fréquement posées (FAQ)
+Cette documentation regroupe les questions les plus fréquemment posées (FAQ)
 par les débutants en Python.
 
 Cette documentation est un effort collectif. Tout 

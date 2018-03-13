@@ -1,3 +1,5 @@
 *.pyc
 Pipfile*
 doc/_build
+
+*.sublime-*

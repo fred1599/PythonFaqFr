@@ -217,7 +217,6 @@ while continuer:
     y += vy
     if collision(niveau, (x, y)):
         x, y = old_x, old_y
-    # x, y, vx, vy = bloque_sur_collision(niveau, (old_x, old_y), (x, y), vx, vy)
  
     screen_surface.fill(BLEU_NUIT)
     dessiner_niveau(screen_surface, niveau)
@@ -282,16 +281,6 @@ def bloque_sur_collision(niveau, old_pos, new_pos, vx, vy):
  
     La fonction retourne la position modifiée pour new_pos.
     """
-    def bloque_sur_collision(niveau, old_pos, new_pos):
-    """Tente de déplacer old_pos vers new_pos dans le niveau.
- 
-    S'il y a collision avec les éléments du niveau, new_pos sera ajusté pour
-    être adjacents aux éléments avec lesquels il entre en collision.
-    On passe également en argument les vitesses `vx` et `vy`.
- 
-    La fonction retourne la position modifiée pour new_pos ainsi que les
-    vitesses modifiées selon les éventuelles collisions.
-    """
     old_rect = pygame.Rect(old_pos, (25, 25))
     new_rect = pygame.Rect(new_pos, (25, 25))
     i, j = from_coord_to_grid(new_pos)
@@ -345,11 +334,11 @@ Pour comprendre pourquoi le personnage bloque, il faut comprendre ce qu'il se pa
 
 ![Correction minimum][min correction]
 
-Le personnage possède une vitesse `vx` et `vy`. Sa nouvelle position est donc en collision avec les deux bloques sous lui. On teste les collisions dans l'ordre donné sur le diagramme : du haut vers le bas et de gauche à droite. Donc on vérifie les collisions dans la case 3 avant la case 4. Pour la case 3, il y a collision à la fois avec le bord inférieur et avec le bord gauche de notre personnage. La fonction `compute_penetration` nous retournera un `dx_correction` et un `dy_correction` que nous appliquons à la position du personnage et il se retrouve dans sa position initiale. Donc il est bloqué !
+Le personnage possède une vitesse `vx` et `vy`. Sa nouvelle position est donc en collision avec les deux bloques sous lui. On teste les collisions dans l'ordre donné sur le diagramme : de gauche à droite et du haut vers le bas. Donc on vérifie les collisions dans la case 3 avant la case 4. Pour la case 3, il y a collision à la fois avec le bord inférieur et avec le bord gauche de notre personnage. La fonction `compute_penetration` nous retournera un `dx_correction` et un `dy_correction` que nous appliquons à la position du personnage et il se retrouve dans sa position initiale. Donc il est bloqué !
 
 En réalité il ne faut corriger que par la plus petite distance pour sortir hors de l'obstacle. Malgré tout, dans cet exemple on voit bien que ça ne fonctionne pas, car la plus petite distance est `dx_correction`. L'autre problème est **l'ordre** dans lequel on considère les bloques. Si on considérait la case 4 avant la 3, on verrait que notre personnage n'entre en collision qu'avec le bas. Et il n'y a qu'une correction `dy_correction`. Ensuite en regardant avec la case 3, il n'y a plus de collision puisque la case 4 nous a repoussé vers le haut.
 
-Mais quel ordre devons-nous choisir ? Il faut commencer par résoudre les cases dont la correction ne s'applique que sur un seul axe, soit X ou Y. On garde les autres bloques pour plus tard. Une fois qu'on a résolu toutes ces collisions, on reprend les bloques qu'on avait gardés, et on résout les collision en n'appliquant que la plus petite correction entre `dx_correction` et `dy_correction`. En entend bien sûr la plus petite valeur **absolue**. Ainsi pour une correction `dy_correction = -8, dy_correction = 2`, on n'appliquerait que la correction `dy_correction`.
+Mais quel ordre devons-nous choisir ? Il faut commencer par résoudre les cases dont la correction ne s'applique que sur un seul axe, soit X ou Y. On garde les autres bloques pour plus tard. Une fois qu'on a résolu toutes ces collisions, on reprend les bloques qu'on avait gardés, et on résout les collision en n'appliquant que la plus petite correction entre `dx_correction` et `dy_correction`. On entend bien sûr la plus petite valeur **absolue**. Ainsi pour une correction `dx_correction = -8, dy_correction = 2`, on n'appliquerait que la correction `dy_correction`.
 
 Notre nouvelle fonction `bloque_sur_collision` va également prendre en argument les vitesses `vx` et `vy` et elle retournera les vitesses corrigées en cas de collision. Ainsi si notre personnage tombe sur le sol, sa `vy` deviendra 0, jusqu'à la prochaine frame bien entendu...
 
@@ -358,7 +347,7 @@ def bloque_sur_collision(niveau, old_pos, new_pos, vx, vy):
     """Tente de déplacer old_pos vers new_pos dans le niveau.
  
     S'il y a collision avec les éléments du niveau, new_pos sera ajusté pour
-    être adjacents aux éléments avec lesquels il entre en collision.
+    être adjacent aux éléments avec lesquels il entre en collision.
     On passe également en argument les vitesses `vx` et `vy`.
  
     La fonction retourne la position modifiée pour new_pos ainsi que les
@@ -414,7 +403,7 @@ Comme avant on se créé les `Rect` de notre position avant et après déplaceme
 
 Pour chaque bloque dans les alentours, on vérifie s'il y a collision. Si oui on calcule les corrections `dx_correction, dy_correction`. Si la correction est nulle sur un axe, on l'applique sur l'autre axe. On en profite pour mettre la vitesse à 0, puisqu'on a heurté qqch dans cette direction. Sinon on place le `Rect` dans notre liste de rectangles qu'on considérera plus tard.
 
-Une fois la boucle finie, on itère cette fois sur les Rect qui nous donnaient une correction sur les 2 axes. On re-caclule la correction qui maintenant a pu changer, puisque d'autres bloques auraient pu interagir avec le personnage. On regarde sur quel axe est la plus petite correction, et on annule l'autre correction. Finalement on applique cette correction. On retourne notre nouvelle position et la nouvelle vitesse.
+Une fois la boucle finie, on itère cette fois sur les `Rect` qui nous donnaient une correction sur les 2 axes. On re-caclule la correction qui maintenant a pu changer, puisque d'autres bloques auraient pu interagir avec le personnage. On regarde sur quel axe est la plus petite correction, et on annule l'autre correction. Finalement on applique cette correction. On retourne notre nouvelle position et la nouvelle vitesse.
 
 Nous y sommes ! Notre personnage peut se déplacer dans le décor et s'arrêter lorsqu'il entre en contact avec un obstacle. Voici le code final :
 

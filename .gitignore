@@ -1,5 +1,5 @@
 *.pyc
-Pipfile*
+Pipfile.lock
 doc/_build
 
 *.sublime-*

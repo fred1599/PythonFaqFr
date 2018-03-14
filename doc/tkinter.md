@@ -31,9 +31,11 @@ de votre code et ainsi rendre cette variable inutilisable par le module lui-mêm
 Il est donc important d'importer concrètement le nom de cette variable ou mieux, d'importer tkinter et appeler une de ces variables de cette
 manière:
 
-```import tkinter  # super!
+```python
+import tkinter  # super!
 ou
-from tkinter import variable1, ...  # peut devenir vite pénible quand beaucoup de variables à importer```
+from tkinter import variable1, ...  # peut devenir vite pénible quand beaucoup de variables à importer
+```
 
 
 Alors vous me direz, ouais, pas grand chose me convient, importer tkinter est assez verbeux, et l'autre solution semble plus pénible.
@@ -51,12 +53,14 @@ Pour cela on va tester une importation avec une certaine version de python, et i
 l'autre version. On codera cela de la manière ci-dessous...
 
 
-```try:
+```python
+try:
     # pour python 3.x
     import tkinter as tk
 except ImportError:
     # pour python 2.x
-    import Tkinter as tk```
+    import Tkinter as tk
+```
 
 
 Initialisation de la fenêtre principale
@@ -80,7 +84,8 @@ Pour créer un bouton, il faut appeler (roulement de tambour), la classe Button.
 Nous allons ici ne donner qu'un petit exemple parmi beaucoup d'autres sur l'utilisation d'un objet Button.
 
 
-```try:
+```python
+try:
     # pour python 3.x
     import tkinter as tk
 except ImportError:
@@ -92,7 +97,8 @@ root = tk.Tk()
 button = tk.Button(root, text='quitter', command=root.quit)
 button.pack()
 
-root.mainloop()```
+root.mainloop()
+```
 
 
 Le bouton `button` créé dans notre fenêtre principale `root` avec comme texte d'information 'quitter', permettra de détruire la fenêtre principale
@@ -109,7 +115,8 @@ Le mot clé global
 Ce mot clé permet entre autre, la modification d'une variable à partir d'une fonction.
 
 
-```def test():
+```python
+def test():
     global x
     x = 5
 
@@ -117,7 +124,8 @@ x = 2
 print(x)  # affiche 2
 
 test()
-print(x)  # affiche 5```
+print(x)  # affiche 5
+```
 
 
 Sans le terme `global`, `x` aurait toujours comme valeur 2 !

@@ -20,9 +20,7 @@ Importation du module
 
 Il faut éviter d'importer son module Tkinter, ni même d'autres modules d'ailleurs sous la forme ci-dessous
 
-```
-from tkinter import *
-```
+`from tkinter import *`
 
 La raison est assez simple, lorsque vous importez tkinter de cette manière, vous importez l'ensemble des variables liées au module.
 Mais connaissez-vous ces noms de variables ? Non ! Il est donc fort possible que vous écrasiez une de ces variables lors de l'écriture

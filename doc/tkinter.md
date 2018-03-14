@@ -32,7 +32,7 @@ Il est donc important d'importer concrètement le nom de cette variable ou mieux
 manière:
 ```import tkinter  # super!
 ou
-from tkinter import variable1, ...  # peut devenir vite pénible quand beaucoup de variables à importer ```
+from tkinter import variable1, ...  # peut devenir vite pénible quand beaucoup de variables à importer```
 
 Alors vous me direz, ouais, pas grand chose me convient, importer tkinter est assez verbeux, et l'autre solution semble plus pénible.
 Pas de problème ! On peut raccourcir cette importation à l'aide du mot clé `as`.

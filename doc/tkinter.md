@@ -30,9 +30,9 @@ de votre code et ainsi rendre cette variable inutilisable par le module lui-mêm
 
 Il est donc important d'importer concrètement le nom de cette variable ou mieux, d'importer tkinter et appeler une de ces variables de cette
 manière:
-```import tkinter  # super!
+`import tkinter  # super!
 ou
-from tkinter import variable1, ...  # peut devenir vite pénible quand beaucoup de variables à importer```
+from tkinter import variable1, ...  # peut devenir vite pénible quand beaucoup de variables à importer`
 
 Alors vous me direz, ouais, pas grand chose me convient, importer tkinter est assez verbeux, et l'autre solution semble plus pénible.
 Pas de problème ! On peut raccourcir cette importation à l'aide du mot clé `as`.

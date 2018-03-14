@@ -1,10 +1,10 @@
 Les bonnes pratiques avec Tkinter
----------------------------------
+=================================
 
 Tkinter est une interface graphique (IHM). Elle permet de pouvoir communiquer graphiquement entre l'homme et la machine afin d'exécuter
 votre programme python.
 
-Nous allons voir ici certaines bonnes pratiques utilisées afin d'éviter des déboire tant dans la conception de votre programme que dans la syntaxe.
+Nous allons voir ici certaines bonnes pratiques utilisées afin d'éviter des déboires tant dans la conception de votre programme que dans la syntaxe.
 
 Pour cela nous allons parler ici de,
     * l'importation du module
@@ -12,11 +12,12 @@ Pour cela nous allons parler ici de,
     * l'initialisation de la fenêtre principale
     * la création d'un bouton avec sa commande
     * le mot clé global
+    
 
 Importation du module
----------------------
+=====================
 
-1) À éviter:
+### 1. À éviter:
 
 Il faut éviter d'importer son module Tkinter, ni même d'autres modules d'ailleurs sous la forme ci-dessous
 
@@ -26,15 +27,15 @@ La raison est assez simple, lorsque vous importez tkinter de cette manière, vou
 Mais connaissez-vous ces noms de variables ? Non ! Il est donc fort possible que vous écrasiez une de ces variables lors de l'écriture
 de votre code et ainsi rendre cette variable inutilisable par le module lui-même.
 
-2) La bonne manière
+### 2. La bonne manière:
 
 Il est donc important d'importer concrètement le nom de cette variable ou mieux, d'importer tkinter et appeler une de ces variables de cette
 manière:
 
 ```python
 import tkinter  # super!
-ou
-from tkinter import variable1, ...  # peut devenir vite pénible quand beaucoup de variables à importer
+ou  # peut devenir vite pénible quand beaucoup de variables à importer
+from tkinter import variable1, ...
 ```
 
 
@@ -44,7 +45,7 @@ Pas de problème ! On peut raccourcir cette importation à l'aide du mot clé `a
 `import tkinter as tk` et là on met tout le monde d'accord !!! C'est plus court, on peut appeler nos variables à volonté très simplement.
 
 La compatibilité entre la version 2.x et 3.x
---------------------------------------------
+=============================================
 
 Il arrive parfois que l'on souhaite que notre programme soit utilisable tant pour les utilisateurs de la version 3.x que pour les utilisateurs de
 la version 2.x (même si on ne conseille plus cette version depuis un certains moment).
@@ -64,20 +65,20 @@ except ImportError:
 
 
 Initialisation de la fenêtre principale
----------------------------------------
+========================================
 
 Tkinter est une interface graphique, son initialisation est représentée par une fenêtre principale vide attendant des évènements de l'utilisateur.
 
 Niveau code, c'est en une ligne `window = tk.Tk()`
 
 `Tk` (avec un T majuscule) est le nom de la classe appelée (la classe est l'usine créant l'objet)
-`tk` (avec un t minuscule) est le nom de l'instance de classe (l'instance est l'objet créé)
+`window` est le nom de l'instance de classe (l'instance est l'objet créé)
 
 Il est très fortement conseillé d'appeler cette classe une seule fois, surtout quand on débute... Dans le cas où vous souhaitez de multiples
 fenêtres, il faudra utiliser une autre classe nommée `Toplevel`.
 
 Création d'un bouton avec sa commande
--------------------------------------
+=====================================
 
 Pour créer un bouton, il faut appeler (roulement de tambour), la classe Button.
 
@@ -107,10 +108,10 @@ le paramètre `command` demande l'objet fonction et non l'objet appelé par la f
 
 `pack` est une méthode pour placer l'objet `button` créé dans la fenêtre `root`.
 
-`mainloop` indique la fin de la boucle événementielle, il n'y aura plus d'intéraction entre homme et interface.
+`mainloop` indique la création de la boucle événementielle et attend les évènements utilisateurs
 
 Le mot clé global
------------------
+==================
 
 Ce mot clé permet entre autre, la modification d'une variable à partir d'une fonction.
 

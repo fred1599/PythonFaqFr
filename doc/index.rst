@@ -26,6 +26,12 @@ bienvenue afin d'ajouter un nouveau sujet ou pour proposer une modification.
 
 .. toctree::
     :maxdepth: 1
+    :caption: Tkinter
+
+    tkinter
+    
+.. toctree::
+    :maxdepth: 1
     :caption: Contribution
 
     contribute

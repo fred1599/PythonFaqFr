@@ -6,16 +6,17 @@ votre programme python.
 
 Nous allons voir ici certaines bonnes pratiques utilisées afin d'éviter des déboires tant dans la conception de votre programme que dans la syntaxe.
 
-Pour cela nous allons parler ici de,
-    * l'importation du module
-    * la compatibilité de python 2.x et 3.x
-    * l'initialisation de la fenêtre principale
-    * la création d'un bouton avec sa commande
-    * le mot clé global
+Pour cela nous allons parler ici de
+
+* l'importation du module
+* la compatibilité de python 2.x et 3.x
+* l'initialisation de la fenêtre principale
+* la création d'un bouton avec sa commande
+* le mot clé global
     
 
 Importation du module
-=====================
+---------------------
 
 ### 1. À éviter:
 
@@ -45,7 +46,7 @@ Pas de problème ! On peut raccourcir cette importation à l'aide du mot clé `a
 `import tkinter as tk` et là on met tout le monde d'accord !!! C'est plus court, on peut appeler nos variables à volonté très simplement.
 
 La compatibilité entre la version 2.x et 3.x
-=============================================
+--------------------------------------------
 
 Il arrive parfois que l'on souhaite que notre programme soit utilisable tant pour les utilisateurs de la version 3.x que pour les utilisateurs de
 la version 2.x (même si on ne conseille plus cette version depuis un certains moment).
@@ -65,7 +66,7 @@ except ImportError:
 
 
 Initialisation de la fenêtre principale
-========================================
+---------------------------------------
 
 Tkinter est une interface graphique, son initialisation est représentée par une fenêtre principale vide attendant des évènements de l'utilisateur.
 
@@ -78,7 +79,7 @@ Il est très fortement conseillé d'appeler cette classe une seule fois, surtout
 fenêtres, il faudra utiliser une autre classe nommée `Toplevel`.
 
 Création d'un bouton avec sa commande
-=====================================
+-------------------------------------
 
 Pour créer un bouton, il faut appeler (roulement de tambour), la classe Button.
 
@@ -111,7 +112,7 @@ le paramètre `command` demande l'objet fonction et non l'objet appelé par la f
 `mainloop` indique la création de la boucle événementielle et attend les évènements utilisateurs
 
 Le mot clé global
-==================
+-----------------
 
 Ce mot clé permet entre autre, la modification d'une variable à partir d'une fonction.
 

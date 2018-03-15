@@ -6,7 +6,7 @@ votre programme python.
 
 Nous allons voir ici certaines bonnes pratiques utilisées afin d'éviter des déboires tant dans la conception de votre programme que dans la syntaxe.
 
-Pour cela nous allons parler ici de
+Pour cela nous allons parler ici de :
 
 * l'importation du module
 * la compatibilité de python 2.x et 3.x
@@ -104,8 +104,14 @@ root.mainloop()
 
 
 Le bouton `button` créé dans notre fenêtre principale `root` avec comme texte d'information 'quitter', permettra de détruire la fenêtre principale
-et stopper l'exécution du programme à l'aide de la commande `root.quit()`. Remarquer l'absence de parenthèses après `root.quit`, lié au fait que
-le paramètre `command` demande l'objet fonction et non l'objet appelé par la fonction.
+et stopper l'exécution du programme à l'aide de la commande `root.quit()`. 
+
+```eval_rst
+.. note::
+
+    Remarquez l'absence de parenthèses après `root.quit`, lié au fait que
+    le paramètre `command` demande l'objet fonction et non l'objet retourné par la fonction.
+```
 
 `pack` est une méthode pour placer l'objet `button` créé dans la fenêtre `root`.
 
@@ -133,10 +139,12 @@ print(x)  # affiche 5
 Sans le terme `global`, `x` aurait toujours comme valeur 2 !
 
 Ça peut avoir un intérêt, mais lorsqu'on est expérimenté et que l'on sait exactement pourquoi on le fait... Souvent ça permet de rendre fonctionnel
-(un genre de rustine) un programme où l'on avait besoin d'ajouter une variable dont celle-ci serait modifier dans une fonction.
+(un genre de rustine) un programme où l'on avait besoin d'ajouter une variable dont celle-ci serait modifiée dans une fonction.
 
 Par contre, le mot clé `global` est en règle générale une très mauvaise pratique, car souvent très nombreux dans les codes et rendant le code
 difficilement débuggable par la suite et maintenable. Si on souhaite modifier une partie du code, c'est souvent ce mot clé qui fait planter le
 code par la suite, car on ne maîtrise plus les variables qui sont ou ne sont pas modifiées.
 
-Conseil: Ne l'utilisez jamais, surtout en tant que débutant !
+```eval_rst
+.. tip:: Ne l'utilisez jamais, surtout en tant que débutant !
+```

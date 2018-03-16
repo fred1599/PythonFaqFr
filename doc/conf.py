@@ -177,4 +177,4 @@ def setup(app):
             'enable_eval_rst': True,
             }, True)
     app.add_transform(AutoStructify)
-    app.add_stylesheet("_static/theme_overrides.css")
+    app.add_stylesheet("theme_overrides.css")

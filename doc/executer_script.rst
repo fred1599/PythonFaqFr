@@ -34,7 +34,7 @@ Et en effet, en ouvrant notre console, on voit notre message et un deuxième mes
 
 .. warning:: L'appel à ``os.system("pause")`` va exécuter un programme qui est normalement est interne à la console (``cmd.exe``). Cependant si un programme s'appelle ``pause.exe`` il sera appelé à la place de la commande interne. Ce programme pourrait être malicieux et exécuter du code qui aurait pour but de vous nuire. Cette pratique est fortement découragée, pas seulement pour les risques de sécurité, mais aussi pour la simple raison qu'elle donne une fausse idée de la manière dont un programme fonctionne.
 
-Sauf que on s'expose à ce risque, mais aussi si on fait une erreur dans notre code et que Python lance une exception, la ligne contenant la pause ne sera pas exécutée et on revient au problème initial, à savoir que la console de commande se referme toute seule, sans nous donner la possibilité de voir où se trouve le problème.
+On s'expose au risque décrit ci-dessus. De plus si on fait une erreur dans notre code et que Python lance une exception, la ligne contenant la pause ne sera pas exécutée et on revient au problème initial: la console de commande se referme toute seule, sans nous donner la possibilité de voir où se trouve le problème car le message d'erreur a disparu immédiatement.
 
 Exécuter un script Python sous Windows : la bonne manière
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -44,7 +44,7 @@ Au lieu de lutter contre le système d'exploitation, il serait préférable de l
 Comment ouvrir une console de commande ?
 ****************************************
 
-la console de commande est un programme comme un autre qui se nomme ``cmd.exe``. Il faut donc cliquer sur le bouton Windows et en tapant les lettre :guilabel:`cmd` Windows nous propose d'ouvrir la console de commande.
+La console de commande est un programme comme un autre qui se nomme ``cmd.exe``. Il faut donc cliquer sur le bouton Windows et en tapant les lettres :guilabel:`cmd`, Windows nous propose d'ouvrir la console de commande.
 
 On est accueilli par une console au fond noir. On peut configurer quelques propriétés utiles. Pour ce faire, il faut cliquer sur l'icône au haut à gauche de la barre de titre de notre console.
 
@@ -59,7 +59,7 @@ Dans le premier onglet *Options*, je conseille de sélectionner l'option **Mode 
 Comment lancer l'interpréteur Python ?
 **************************************
 
-Il faut d'abord s'assurer que le *Python launcher* est bien visible depuis la console. Il suffit de simplement entrer la commande ``py``. Soit vous vous retrouvez dans l'interpréteur Python :
+Il faut d'abord s'assurer que le *Python launcher* est bien visible depuis la console. Il suffit simplement d'entrer la commande ``py``. Soit vous vous retrouvez dans l'interpréteur Python :
 
 .. figure:: executer_script/launch_py.png
     :align: center
@@ -77,7 +77,7 @@ Ou alors vous obtenez un message d'erreur disant :
     'py' n'est pas reconnu en tant que commande interne
     ou externe, un programme exécutable ou un fichier de commandes.
 
-Lorsqu'on entre la commande ``py`` dans la console, Windows tente de trouver un programme ``py.exe`` dans le répertoire courant (là où on se trouve). Comme il ne le trouve pas, il va voir dans d'autres répertoires fournit dans la variable d'environnement ``%PATH``. Mais le dossier du *Python launcher* n'a pas été ajouté à la liste des répertoires dans lesquelles chercher.
+Lorsqu'on entre la commande ``py`` dans la console, Windows tente de trouver un programme ``py.exe`` dans le répertoire courant (là où on se trouve). Comme il ne le trouve pas, il va voir dans d'autres répertoires fournit dans la variable d'environnement ``%PATH%``. Mais le dossier du *Python launcher* n'a pas été ajouté à la liste des répertoires dans lesquelles chercher.
 
 Pour remédier au problème, il suffit de cliquer sur le bouton Windows, et de sélectionner **Ajouter ou supprimer des programmes**. Dans la liste des programmes, on sélectionne notre installation de Python et on clique sur le bouton **Modifier**. Une nouvelle fenêtre apparaît :
 
@@ -101,18 +101,18 @@ Finalement c'est le dernier écran qui nous intéresse.
 
     Les options avancées
 
-On veut ajouter Python aux variables d'environnement. Une fois cette case cochée et la modification de l'installation terminée, on doit fermer la console et ouvrir une nouvelle afin que les changements soient pris en compte.
+On veut ajouter Python aux variables d'environnement. Une fois cette case cochée et la modification de l'installation terminée, on doit fermer la console et ouvrir une nouvelle afin que les changements soient pris en compte. A présent la commande ``py`` est bien reconnue et on peut lancer l'interpréteur Python.
 
 Comment exécuter un script Python ?
 ***********************************
 
-A présent voyons comment exécuter notre script depuis la console. Il faut tout d'abord *naviguer* dans le dossier où se trouve notre script. La commande ``cd`` (**C**\ hange **D**\ irectory) permet de changer le répertoire dans lequel on se trouve. Mais où se trouve-t-on en fait ? Analysons un instant l'invite fournie par Windows. Dans mon cas c'est :
+A présent voyons comment exécuter notre script depuis la console. Il faut tout d'abord *naviguer* vers le dossier où se trouve notre script. La commande ``cd`` (**C**\ hange **D**\ irectory) permet de changer le répertoire dans lequel on se trouve. Mais où se trouve-t-on en fait ? Analysons un instant l'invite fournie par Windows. Dans mon cas c'est :
 
 .. code-block:: doscon
     
     C:\Users\DANIELG>
 
-La lettre ``C:`` est associée à mon disque dur principal, là où est installé Windows. C'est ce qu'on appelle la *racine* de mon disque. Le symbole ``\`` est le symbole séparateur de dossiers. Le tout premier symbole veut dire qu'on part de la racine, puis vient le dossier ``Users`` qui contient le dossier ``DANIELG``. C'est le **répertoire courant**. Pour se rendre dans le répertoire ``Desktop`` contenu dans le répertoire courant ``\Users\DANIELG``, on utilise la commande ``cd`` suivie du nom du dossier ``Desktop``. Comme les programmeurs sont des gros fainéants, on utilise l'*auto-completion*. On ne tape que quelques lettres du dossier et on appuie sur la touche te tabulation ``cd Des``:guilabel:`TAB`. Windows nous propose un nom de dossier qui commence par ces lettres. Si par malchance un autre dossier commençait par ces 3 lettres aussi, des appuis successifs sur :guilabel:`TAB` permet de passer à la prochaine suggestion.
+La lettre ``C:`` est associée à mon disque dur principal, là où est installé Windows. C'est ce qu'on appelle la *racine* de mon disque. Le symbole ``\`` est le symbole séparateur de dossiers. Le tout premier symbole veut dire qu'on part de la racine, puis vient le dossier ``Users`` qui contient le dossier ``DANIELG``. C'est le **répertoire courant**. Pour se rendre dans le répertoire ``Desktop`` contenu dans le répertoire courant ``\Users\DANIELG``, on utilise la commande ``cd`` suivie du nom du dossier ``Desktop``. Comme les programmeurs sont des gros fainéants, on utilise l'*auto-completion*. On ne tape que quelques lettres du dossier et on appuie sur la touche de tabulation ``cd Des``:guilabel:`TAB`. Windows nous propose un nom de dossier qui commence par ces lettres. Si par malchance un autre dossier commençait par ces 3 lettres aussi, des appuis successifs sur :guilabel:`TAB` permettent de passer à la prochaine suggestion.
 
 Si on désire se rendre dans le dossier parent, on utilise la commande ``cd ..``. Si on veut retourner à la racine, on utilise la commande ``cd \``. Il est possible de mettre immédiatement tout le chemin en une fois et en utilisant à chaque fois :guilabel:`TAB` pour nous éviter de tout taper. Donc si je dois me rendre dans le dossier ``C:\OfflineFiles\Python`` alors que je suis actuellement dans le dossier ``\Users\DANIELG``, je dois retourner depuis la racine et me rendre successivement dans ``OfflineFiles`` et ``Python``. En une seule commande, ça donne ``cd \OfflineFiles\Python``. Et bien entendu je n'ai tapé que ``of`` suivi de :guilabel:`TAB` puis ``\p`` suivi de :guilabel:`TAB` et Windows a complété le chemin pour moi :
 
@@ -136,4 +136,4 @@ Une fois dans le dossier où se trouve notre script, il ne nous reste plus qu'à
     
     C:\OfflineFiles\Python>py premier_script.py
 
-On peut à présent voir correctement l'exécution de notre script ou ses messages d'erreurs. Notre console reste ouverte.
+On peut à présent voir en toute quiétude l'exécution de notre script ou ses messages d'erreurs. Notre console reste ouverte.

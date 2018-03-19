@@ -18,6 +18,8 @@ bienvenue afin d'ajouter un nouveau sujet ou pour proposer une modification.
     :maxdepth: 1
     :caption: Python en général
 
+    executer_script
+    
 .. toctree::
     :maxdepth: 1
     :caption: Pygame

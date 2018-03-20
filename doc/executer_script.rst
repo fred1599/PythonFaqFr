@@ -77,7 +77,7 @@ Ou alors vous obtenez un message d'erreur disant :
     'py' n'est pas reconnu en tant que commande interne
     ou externe, un programme exécutable ou un fichier de commandes.
 
-Lorsqu'on entre la commande ``py`` dans la console, Windows tente de trouver un programme ``py.exe`` dans le répertoire courant (là où on se trouve). Comme il ne le trouve pas, il va voir dans d'autres répertoires fournit dans la variable d'environnement ``%PATH%``. Mais le dossier du *Python launcher* n'a pas été ajouté à la liste des répertoires dans lesquelles chercher.
+Lorsqu'on entre la commande ``py`` dans la console, Windows tente de trouver un programme ``py.exe`` dans le répertoire courant (là où on se trouve). Comme il ne le trouve pas, il va voir dans d'autres répertoires fournis dans la variable d'environnement ``%PATH%``. Mais le dossier du *Python launcher* n'a pas été ajouté à la liste des répertoires dans lesquelles chercher.
 
 Pour remédier au problème, il suffit de cliquer sur le bouton Windows, et de sélectionner **Ajouter ou supprimer des programmes**. Dans la liste des programmes, on sélectionne notre installation de Python et on clique sur le bouton **Modifier**. Une nouvelle fenêtre apparaît :
 
@@ -113,6 +113,8 @@ A présent voyons comment exécuter notre script depuis la console. Il faut tout
     C:\Users\DANIELG>
 
 La lettre ``C:`` est associée à mon disque dur principal, là où est installé Windows. C'est ce qu'on appelle la *racine* de mon disque. Le symbole ``\`` est le symbole séparateur de dossiers. Le tout premier symbole veut dire qu'on part de la racine, puis vient le dossier ``Users`` qui contient le dossier ``DANIELG``. C'est le **répertoire courant**. Pour se rendre dans le répertoire ``Desktop`` contenu dans le répertoire courant ``\Users\DANIELG``, on utilise la commande ``cd`` suivie du nom du dossier ``Desktop``. Comme les programmeurs sont des gros fainéants, on utilise l'*auto-completion*. On ne tape que quelques lettres du dossier et on appuie sur la touche de tabulation ``cd Des``:guilabel:`TAB`. Windows nous propose un nom de dossier qui commence par ces lettres. Si par malchance un autre dossier commençait par ces 3 lettres aussi, des appuis successifs sur :guilabel:`TAB` permettent de passer à la prochaine suggestion.
+
+.. tip:: L'utilisation de la flèche :guilabel:`↑` permet de rappeler une commande précédemment exécutée dans la console de commande.
 
 Si on désire se rendre dans le dossier parent, on utilise la commande ``cd ..``. Si on veut retourner à la racine, on utilise la commande ``cd \``. Il est possible de mettre immédiatement tout le chemin en une fois et en utilisant à chaque fois :guilabel:`TAB` pour nous éviter de tout taper. Donc si je dois me rendre dans le dossier ``C:\OfflineFiles\Python`` alors que je suis actuellement dans le dossier ``\Users\DANIELG``, je dois retourner depuis la racine et me rendre successivement dans ``OfflineFiles`` et ``Python``. En une seule commande, ça donne ``cd \OfflineFiles\Python``. Et bien entendu je n'ai tapé que ``of`` suivi de :guilabel:`TAB` puis ``\p`` suivi de :guilabel:`TAB` et Windows a complété le chemin pour moi :
 

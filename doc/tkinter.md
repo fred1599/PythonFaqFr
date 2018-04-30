@@ -148,3 +148,18 @@ code par la suite, car on ne maîtrise plus les variables qui sont ou ne sont pa
 ```eval_rst
 .. tip:: Ne l'utilisez jamais, surtout en tant que débutant !
 ```
+Plusieurs instances Tk
+-----------------------
+Vous souhaitez une seule fenêtre principale, pas de problème, utilisez une instance Tk
+```python
+root = tk.Tk() # création de l'instance (objet)
+```
+Vous souhaitez plus d'une fenêtre, vous ne pouvez instancier qu'une fois Tk ! Pour éviter ces multiples créations d'instance qui vous poseront d'énormes problèmes (plusieurs boucles événementielles), utilisez l'instance d'un Toplevel.
+```python
+fen1 = tk.Tk()
+fen2 = tk.Toplevel() # création d'une deuxième fenêtre
+fen1.mainloop()
+```
+```eval_rst
+.. tip:: Ne jamais utiliser plus d'une instance Tk
+```
